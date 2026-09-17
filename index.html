@@ -44,10 +44,6 @@
       overflow: hidden;
     }
 
-    /* =========================
-       FOTO PRINCIPAL
-       ========================= */
-
     .hero {
       position: relative;
       width: 100%;
@@ -83,10 +79,6 @@
       pointer-events: none;
     }
 
-    /* =========================
-       PERFIL
-       ========================= */
-
     .profile {
       position: absolute;
       z-index: 2;
@@ -116,10 +108,6 @@
       line-height: 1.4;
       color: rgba(255,255,255,0.72);
     }
-
-    /* =========================
-       BOTÓN PRINCIPAL
-       ========================= */
 
     .actions {
       padding: 0 20px 45px;
@@ -153,10 +141,6 @@
       transform: scale(0.985);
       background: #242424;
     }
-
-    /* =========================
-       MODAL 18+
-       ========================= */
 
     .age-modal {
       display: none;
@@ -248,10 +232,6 @@
       transform: scale(0.98);
     }
 
-    /* =========================
-       MÓVILES PEQUEÑOS
-       ========================= */
-
     @media (max-width: 430px) {
 
       .hero {
@@ -331,7 +311,6 @@
 
     </section>
 
-
     <section class="actions">
 
       <button
@@ -345,11 +324,6 @@
     </section>
 
   </main>
-
-
-  <!-- =========================
-       AVISO 18+
-       ========================= -->
 
   <div
     id="ageModal"
@@ -365,7 +339,6 @@
         This content is intended for adults only (18+)
       </p>
 
-
       <div class="age-actions">
 
         <button
@@ -375,7 +348,6 @@
         >
           Cancel
         </button>
-
 
         <button
           id="continueButton"
@@ -391,20 +363,11 @@
 
   </div>
 
-
   <script>
-
-    /* =========================
-       DESTINO
-       ========================= */
 
     const destination =
       "https://rebrand.ly/w3p1cn7";
 
-
-    /* =========================
-       TRADUCCIONES
-       ========================= */
 
     const translations = {
 
@@ -590,10 +553,6 @@
     };
 
 
-    /* =========================
-       DETECTAR IDIOMA
-       ========================= */
-
     const detectedLanguage =
       (
         navigator.languages &&
@@ -611,10 +570,6 @@
       translations[language] ||
       translations.en;
 
-
-    /* =========================
-       APLICAR TRADUCCIÓN
-       ========================= */
 
     document
       .getElementById("subtitle")
@@ -641,10 +596,6 @@
       .textContent =
         text.continue;
 
-
-    /* =========================
-       MODAL 18+
-       ========================= */
 
     const ageModal =
       document.getElementById("ageModal");
@@ -691,16 +642,102 @@
     );
 
 
-    /* =========================
-       CONTINUAR AL ENLACE
-       ========================= */
+    function openExternalBrowser(url) {
+
+      const ua =
+        navigator.userAgent ||
+        navigator.vendor ||
+        "";
+
+      const isInstagram =
+        /Instagram/i.test(ua);
+
+      const isFacebook =
+        /FBAN|FBAV|FB_IAB/i.test(ua);
+
+      const isIOS =
+        /iPhone|iPad|iPod/i.test(ua);
+
+      const isAndroid =
+        /Android/i.test(ua);
+
+      const isInAppBrowser =
+        isInstagram || isFacebook;
+
+
+      if (isInAppBrowser && isIOS) {
+
+        const externalURL =
+          "instagram://extbrowser/?url=" +
+          encodeURIComponent(url);
+
+        window.location.href =
+          externalURL;
+
+        setTimeout(
+          function () {
+
+            window.location.href =
+              url;
+
+          },
+          1800
+        );
+
+        return;
+      }
+
+
+      if (isInAppBrowser && isAndroid) {
+
+        try {
+
+          const parsed =
+            new URL(url);
+
+          const intentURL =
+            "intent://" +
+            parsed.host +
+            parsed.pathname +
+            parsed.search +
+            parsed.hash +
+            "#Intent;" +
+            "scheme=https;" +
+            "action=android.intent.action.VIEW;" +
+            "category=android.intent.category.BROWSABLE;" +
+            "S.browser_fallback_url=" +
+            encodeURIComponent(url) +
+            ";" +
+            "end";
+
+          window.location.href =
+            intentURL;
+
+        } catch (error) {
+
+          window.location.href =
+            url;
+
+        }
+
+        return;
+      }
+
+
+      window.location.href =
+        url;
+    }
+
 
     continueButton.addEventListener(
       "click",
       function () {
 
-        window.location.href =
-          destination;
+        ageModal.classList.remove("show");
+
+        openExternalBrowser(
+          destination
+        );
 
       }
     );
