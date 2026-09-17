@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Jeergg</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: #050505;
+      color: white;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #050505;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 650px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: #050505;
+      overflow: hidden;
+    }
+
+    /* =========================
+       FOTO PRINCIPAL
+       ========================= */
+
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 68vh;
+      min-height: 540px;
+      max-height: 800px;
+      overflow: hidden;
+    }
+
+    .hero img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center top;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background:
+        linear-gradient(
+          to bottom,
+          rgba(0,0,0,0) 40%,
+          rgba(0,0,0,0.05) 52%,
+          rgba(0,0,0,0.20) 63%,
+          rgba(5,5,5,0.60) 80%,
+          #050505 100%
+        );
+
+      pointer-events: none;
+    }
+
+    /* =========================
+       PERFIL
+       ========================= */
+
+    .profile {
+      position: absolute;
+      z-index: 2;
+      left: 20px;
+      right: 20px;
+      bottom: 28px;
+      text-align: center;
+    }
+
+    .name {
+      margin: 0 0 7px;
+      font-size: 37px;
+      line-height: 1;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    .username {
+      margin: 0 0 15px;
+      font-size: 19px;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 19px;
+      line-height: 1.4;
+      color: rgba(255,255,255,0.72);
+    }
+
+    /* =========================
+       BOTÓN PRINCIPAL
+       ========================= */
+
+    .actions {
+      padding: 0 20px 45px;
+    }
+
+    .main-button {
+      width: 100%;
+      min-height: 78px;
+
+      border: 2px solid rgba(255,255,255,0.82);
+      border-radius: 18px;
+
+      background: #191919;
+      color: white;
+
+      padding: 17px 20px;
+
+      font-size: 21px;
+      font-weight: 400;
+
+      cursor: pointer;
+
+      -webkit-tap-highlight-color: transparent;
+
+      transition:
+        transform 0.12s ease,
+        background 0.12s ease;
+    }
+
+    .main-button:active {
+      transform: scale(0.985);
+      background: #242424;
+    }
+
+    /* =========================
+       MODAL 18+
+       ========================= */
+
+    .age-modal {
+      display: none;
+
+      position: fixed;
+      inset: 0;
+
+      z-index: 9999;
+
+      background: rgba(0,0,0,0.38);
+
+      align-items: center;
+      justify-content: center;
+
+      padding: 20px;
+
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+    }
+
+    .age-modal.show {
+      display: flex;
+    }
+
+    .age-box {
+      width: 100%;
+      max-width: 470px;
+
+      background: rgba(12,12,12,0.97);
+
+      border:
+        1px solid rgba(255,255,255,0.16);
+
+      border-radius: 22px;
+
+      padding: 23px 20px 20px;
+
+      text-align: center;
+
+      box-shadow:
+        0 18px 60px rgba(0,0,0,0.58);
+    }
+
+    .age-text {
+      margin: 0 0 22px;
+
+      font-size: 18px;
+      line-height: 1.4;
+
+      color: white;
+    }
+
+    .age-actions {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+
+      gap: 11px;
+    }
+
+    .age-btn {
+      border-radius: 11px;
+
+      padding: 12px 15px;
+
+      font-size: 16px;
+
+      border:
+        1px solid rgba(255,255,255,0.20);
+
+      cursor: pointer;
+
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .age-btn.cancel {
+      background: #2d2d2d;
+      color: white;
+    }
+
+    .age-btn.continue {
+      background: white;
+      color: black;
+
+      flex: 1;
+    }
+
+    .age-btn:active {
+      transform: scale(0.98);
+    }
+
+    /* =========================
+       MÓVILES PEQUEÑOS
+       ========================= */
+
+    @media (max-width: 430px) {
+
+      .hero {
+        height: 66vh;
+        min-height: 500px;
+      }
+
+      .name {
+        font-size: 34px;
+      }
+
+      .username {
+        font-size: 18px;
+      }
+
+      .subtitle {
+        font-size: 17px;
+      }
+
+      .main-button {
+        min-height: 72px;
+        font-size: 19px;
+      }
+
+      .age-text {
+        font-size: 17px;
+      }
+
+      .age-btn {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 350px) {
+
+      .age-actions {
+        flex-direction: column;
+      }
+
+      .age-btn {
+        width: 100%;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <section class="hero">
+
+      <img
+        src="IMG_6983.jpeg"
+        alt="Jeergg"
+      >
+
+      <div class="profile">
+
+        <h1 class="name">
+          Jeergg
+        </h1>
+
+        <p class="username">
+          @jeergg
+        </p>
+
+        <p
+          id="subtitle"
+          class="subtitle"
+        >
+          What you're looking for is here
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="actions">
+
+      <button
+        id="mainButton"
+        class="main-button"
+        type="button"
+      >
+        What you're looking for is here 🤍
+      </button>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================
+       AVISO 18+
+       ========================= -->
+
+  <div
+    id="ageModal"
+    class="age-modal"
+  >
+
+    <div class="age-box">
+
+      <p
+        id="ageText"
+        class="age-text"
+      >
+        This content is intended for adults only (18+)
+      </p>
+
+
+      <div class="age-actions">
+
+        <button
+          id="cancelButton"
+          class="age-btn cancel"
+          type="button"
+        >
+          Cancel
+        </button>
+
+
+        <button
+          id="continueButton"
+          class="age-btn continue"
+          type="button"
+        >
+          I am 18+, Continue
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script>
+
+    /* =========================
+       DESTINO
+       ========================= */
+
+    const destination =
+      "https://rebrand.ly/w3p1cn7";
+
+
+    /* =========================
+       TRADUCCIONES
+       ========================= */
+
+    const translations = {
+
+      es: {
+        subtitle: "Lo que buscas aquí",
+        main: "Lo que buscas aquí 🤍",
+        age:
+          "Este contenido está destinado únicamente a adultos (18+)",
+        cancel: "Cancelar",
+        continue:
+          "Soy mayor de 18, continuar"
+      },
+
+      en: {
+        subtitle:
+          "What you're looking for is here",
+        main:
+          "What you're looking for is here 🤍",
+        age:
+          "This content is intended for adults only (18+)",
+        cancel:
+          "Cancel",
+        continue:
+          "I am 18+, Continue"
+      },
+
+      pt: {
+        subtitle:
+          "O que você procura está aqui",
+        main:
+          "O que você procura está aqui 🤍",
+        age:
+          "Este conteúdo é destinado apenas a adultos (18+)",
+        cancel:
+          "Cancelar",
+        continue:
+          "Tenho 18+, Continuar"
+      },
+
+      fr: {
+        subtitle:
+          "Ce que vous cherchez est ici",
+        main:
+          "Ce que vous cherchez est ici 🤍",
+        age:
+          "Ce contenu est réservé aux adultes (18+)",
+        cancel:
+          "Annuler",
+        continue:
+          "J'ai 18 ans ou plus, Continuer"
+      },
+
+      de: {
+        subtitle:
+          "Was du suchst, ist hier",
+        main:
+          "Was du suchst, ist hier 🤍",
+        age:
+          "Dieser Inhalt ist nur für Erwachsene bestimmt (18+)",
+        cancel:
+          "Abbrechen",
+        continue:
+          "Ich bin 18+, Weiter"
+      },
+
+      it: {
+        subtitle:
+          "Quello che cerchi è qui",
+        main:
+          "Quello che cerchi è qui 🤍",
+        age:
+          "Questo contenuto è destinato esclusivamente agli adulti (18+)",
+        cancel:
+          "Annulla",
+        continue:
+          "Ho più di 18 anni, Continua"
+      },
+
+      nl: {
+        subtitle:
+          "Wat je zoekt is hier",
+        main:
+          "Wat je zoekt is hier 🤍",
+        age:
+          "Deze inhoud is alleen bedoeld voor volwassenen (18+)",
+        cancel:
+          "Annuleren",
+        continue:
+          "Ik ben 18+, Doorgaan"
+      },
+
+      pl: {
+        subtitle:
+          "To, czego szukasz, jest tutaj",
+        main:
+          "To, czego szukasz, jest tutaj 🤍",
+        age:
+          "Ta treść jest przeznaczona wyłącznie dla osób dorosłych (18+)",
+        cancel:
+          "Anuluj",
+        continue:
+          "Mam 18+, Kontynuuj"
+      },
+
+      ru: {
+        subtitle:
+          "То, что ты ищешь, здесь",
+        main:
+          "То, что ты ищешь, здесь 🤍",
+        age:
+          "Этот контент предназначен только для взрослых (18+)",
+        cancel:
+          "Отмена",
+        continue:
+          "Мне 18+, Продолжить"
+      },
+
+      tr: {
+        subtitle:
+          "Aradığın şey burada",
+        main:
+          "Aradığın şey burada 🤍",
+        age:
+          "Bu içerik yalnızca yetişkinler içindir (18+)",
+        cancel:
+          "İptal",
+        continue:
+          "18 yaşından büyüğüm, Devam et"
+      },
+
+      ja: {
+        subtitle:
+          "探しているものはここにあります",
+        main:
+          "探しているものはここにあります 🤍",
+        age:
+          "このコンテンツは成人（18歳以上）のみを対象としています",
+        cancel:
+          "キャンセル",
+        continue:
+          "18歳以上です。続行"
+      },
+
+      ko: {
+        subtitle:
+          "찾고 있는 것이 여기 있어요",
+        main:
+          "찾고 있는 것이 여기 있어요 🤍",
+        age:
+          "이 콘텐츠는 성인(18세 이상)만을 위한 것입니다",
+        cancel:
+          "취소",
+        continue:
+          "18세 이상입니다. 계속"
+      },
+
+      zh: {
+        subtitle:
+          "你要找的就在这里",
+        main:
+          "你要找的就在这里 🤍",
+        age:
+          "此内容仅限成年人（18岁以上）",
+        cancel:
+          "取消",
+        continue:
+          "我已满18岁，继续"
+      },
+
+      ar: {
+        subtitle:
+          "ما تبحث عنه هنا",
+        main:
+          "ما تبحث عنه هنا 🤍",
+        age:
+          "هذا المحتوى مخصص للبالغين فقط (+18)",
+        cancel:
+          "إلغاء",
+        continue:
+          "عمري 18 عامًا أو أكثر، متابعة"
+      }
+
+    };
+
+
+    /* =========================
+       DETECTAR IDIOMA
+       ========================= */
+
+    const detectedLanguage =
+      (
+        navigator.languages &&
+        navigator.languages.length
+          ? navigator.languages[0]
+          : navigator.language
+      ) || "en";
+
+    const language =
+      detectedLanguage
+        .toLowerCase()
+        .split("-")[0];
+
+    const text =
+      translations[language] ||
+      translations.en;
+
+
+    /* =========================
+       APLICAR TRADUCCIÓN
+       ========================= */
+
+    document
+      .getElementById("subtitle")
+      .textContent =
+        text.subtitle;
+
+    document
+      .getElementById("mainButton")
+      .textContent =
+        text.main;
+
+    document
+      .getElementById("ageText")
+      .textContent =
+        text.age;
+
+    document
+      .getElementById("cancelButton")
+      .textContent =
+        text.cancel;
+
+    document
+      .getElementById("continueButton")
+      .textContent =
+        text.continue;
+
+
+    /* =========================
+       MODAL 18+
+       ========================= */
+
+    const ageModal =
+      document.getElementById("ageModal");
+
+    const mainButton =
+      document.getElementById("mainButton");
+
+    const cancelButton =
+      document.getElementById("cancelButton");
+
+    const continueButton =
+      document.getElementById("continueButton");
+
+
+    mainButton.addEventListener(
+      "click",
+      function () {
+
+        ageModal.classList.add("show");
+
+      }
+    );
+
+
+    cancelButton.addEventListener(
+      "click",
+      function () {
+
+        ageModal.classList.remove("show");
+
+      }
+    );
+
+
+    ageModal.addEventListener(
+      "click",
+      function (event) {
+
+        if (event.target === ageModal) {
+          ageModal.classList.remove("show");
+        }
+
+      }
+    );
+
+
+    /* =========================
+       CONTINUAR AL ENLACE
+       ========================= */
+
+    continueButton.addEventListener(
+      "click",
+      function () {
+
+        window.location.href =
+          destination;
+
+      }
+    );
+
+  </script>
+
+</body>
+</html>
