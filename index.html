@@ -43,8 +43,6 @@
       overflow: hidden;
     }
 
-    /* FOTO */
-
     .hero {
       position: relative;
       width: 100%;
@@ -66,7 +64,6 @@
       content: "";
       position: absolute;
       inset: 0;
-
       background:
         linear-gradient(
           to bottom,
@@ -76,11 +73,8 @@
           rgba(5,5,5,0.60) 80%,
           #050505 100%
         );
-
       pointer-events: none;
     }
-
-    /* PERFIL */
 
     .profile {
       position: absolute;
@@ -111,8 +105,6 @@
       color: rgba(255,255,255,0.72);
     }
 
-    /* BOTÓN */
-
     .actions {
       padding: 0 20px 45px;
     }
@@ -120,19 +112,13 @@
     .main-button {
       width: 100%;
       min-height: 78px;
-
       border: 2px solid rgba(255,255,255,0.82);
       border-radius: 18px;
-
       background: #191919;
       color: white;
-
       padding: 17px 20px;
-
       font-size: 21px;
-
       cursor: pointer;
-
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -141,23 +127,15 @@
       background: #242424;
     }
 
-    /* MODAL 18+ */
-
     .age-modal {
       display: none;
-
       position: fixed;
       inset: 0;
-
       z-index: 9999;
-
       background: rgba(0,0,0,0.42);
-
       align-items: center;
       justify-content: center;
-
       padding: 20px;
-
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
     }
@@ -169,23 +147,16 @@
     .age-box {
       width: 100%;
       max-width: 470px;
-
       background: rgba(12,12,12,0.98);
-
       border: 1px solid rgba(255,255,255,0.16);
-
       border-radius: 22px;
-
       padding: 24px 20px 20px;
-
       text-align: center;
-
       box-shadow: 0 18px 60px rgba(0,0,0,0.60);
     }
 
     .age-text {
       margin: 0 0 22px;
-
       font-size: 18px;
       line-height: 1.4;
     }
@@ -197,15 +168,10 @@
 
     .age-btn {
       border-radius: 11px;
-
       padding: 13px 15px;
-
       font-size: 16px;
-
       border: 1px solid rgba(255,255,255,0.20);
-
       cursor: pointer;
-
       -webkit-tap-highlight-color: transparent;
     }
 
@@ -220,23 +186,15 @@
       flex: 1;
     }
 
-    /* PANTALLA AL VOLVER */
-
     .return-screen {
       display: none;
-
       position: fixed;
       inset: 0;
-
       z-index: 20000;
-
       background: #000;
-
       align-items: center;
       justify-content: center;
-
       text-align: center;
-
       padding: 25px;
     }
 
@@ -263,21 +221,15 @@
     .return-button {
       width: 100%;
       min-height: 64px;
-
       border-radius: 16px;
-
       border: 1px solid rgba(255,255,255,0.65);
-
       background: #191919;
       color: white;
-
       font-size: 18px;
-
       cursor: pointer;
     }
 
     @media (max-width: 430px) {
-
       .hero {
         height: 66vh;
         min-height: 500px;
@@ -306,7 +258,6 @@
     }
 
     @media (max-width: 350px) {
-
       .age-actions {
         flex-direction: column;
       }
@@ -350,7 +301,6 @@
 
     </section>
 
-
     <section class="actions">
 
       <button
@@ -365,8 +315,6 @@
 
   </main>
 
-
-  <!-- 18+ -->
 
   <div
     id="ageModal"
@@ -407,8 +355,6 @@
   </div>
 
 
-  <!-- PANTALLA DE REGRESO -->
-
   <div
     id="returnScreen"
     class="return-screen"
@@ -427,7 +373,7 @@
         id="returnDescription"
         class="return-description"
       >
-        Return to my Instagram profile.
+        Return directly to my Instagram profile.
       </p>
 
       <button
@@ -445,17 +391,8 @@
 
   <script>
 
-    /* =====================================
-       DESTINO EXTERNO
-       ===================================== */
-
     const destination =
       "https://rebrand.ly/w3p1cn7";
-
-
-    /* =====================================
-       PERFIL DE INSTAGRAM
-       ===================================== */
 
     const instagramUsername =
       "jeer.gg";
@@ -465,122 +402,72 @@
       instagramUsername;
 
 
-    /* =====================================
-       TRADUCCIONES
-       ===================================== */
-
     const translations = {
 
       es: {
         subtitle: "Lo que buscas aquí",
         main: "Lo que buscas aquí 🤍",
-        age:
-          "Este contenido está destinado únicamente a adultos (18+)",
-        cancel:
-          "Cancelar",
-        continue:
-          "Soy mayor de 18, continuar",
-        opened:
-          "Abierto en tu navegador",
-        description:
-          "Al regresar, puedes volver directamente a mi perfil de Instagram.",
-        profile:
-          "Abrir @jeer.gg"
+        age: "Este contenido está destinado únicamente a adultos (18+)",
+        cancel: "Cancelar",
+        continue: "Soy mayor de 18, continuar",
+        opened: "Abierto en tu navegador",
+        description: "Vuelve directamente a mi perfil de Instagram.",
+        profile: "Abrir @jeer.gg"
       },
 
       en: {
-        subtitle:
-          "What you're looking for is here",
-        main:
-          "What you're looking for is here 🤍",
-        age:
-          "This content is intended for adults only (18+)",
-        cancel:
-          "Cancel",
-        continue:
-          "I am 18+, Continue",
-        opened:
-          "Opened in your browser",
-        description:
-          "When you return, you can go directly to my Instagram profile.",
-        profile:
-          "Open @jeer.gg"
+        subtitle: "What you're looking for is here",
+        main: "What you're looking for is here 🤍",
+        age: "This content is intended for adults only (18+)",
+        cancel: "Cancel",
+        continue: "I am 18+, Continue",
+        opened: "Opened in your browser",
+        description: "Return directly to my Instagram profile.",
+        profile: "Open @jeer.gg"
       },
 
       pt: {
-        subtitle:
-          "O que você procura está aqui",
-        main:
-          "O que você procura está aqui 🤍",
-        age:
-          "Este conteúdo é destinado apenas a adultos (18+)",
-        cancel:
-          "Cancelar",
-        continue:
-          "Tenho 18+, Continuar",
-        opened:
-          "Aberto no seu navegador",
-        description:
-          "Ao voltar, você pode ir diretamente ao meu perfil do Instagram.",
-        profile:
-          "Abrir @jeer.gg"
+        subtitle: "O que você procura está aqui",
+        main: "O que você procura está aqui 🤍",
+        age: "Este conteúdo é destinado apenas a adultos (18+)",
+        cancel: "Cancelar",
+        continue: "Tenho 18+, Continuar",
+        opened: "Aberto no seu navegador",
+        description: "Volte diretamente ao meu perfil do Instagram.",
+        profile: "Abrir @jeer.gg"
       },
 
       fr: {
-        subtitle:
-          "Ce que vous cherchez est ici",
-        main:
-          "Ce que vous cherchez est ici 🤍",
-        age:
-          "Ce contenu est réservé aux adultes (18+)",
-        cancel:
-          "Annuler",
-        continue:
-          "J'ai 18 ans ou plus, Continuer",
-        opened:
-          "Ouvert dans votre navigateur",
-        description:
-          "À votre retour, accédez directement à mon profil Instagram.",
-        profile:
-          "Ouvrir @jeer.gg"
+        subtitle: "Ce que vous cherchez est ici",
+        main: "Ce que vous cherchez est ici 🤍",
+        age: "Ce contenu est réservé aux adultes (18+)",
+        cancel: "Annuler",
+        continue: "J'ai 18 ans ou plus, Continuer",
+        opened: "Ouvert dans votre navigateur",
+        description: "Retournez directement à mon profil Instagram.",
+        profile: "Ouvrir @jeer.gg"
       },
 
       de: {
-        subtitle:
-          "Was du suchst, ist hier",
-        main:
-          "Was du suchst, ist hier 🤍",
-        age:
-          "Dieser Inhalt ist nur für Erwachsene bestimmt (18+)",
-        cancel:
-          "Abbrechen",
-        continue:
-          "Ich bin 18+, Weiter",
-        opened:
-          "Im Browser geöffnet",
-        description:
-          "Nach deiner Rückkehr kannst du direkt zu meinem Instagram-Profil gehen.",
-        profile:
-          "@jeer.gg öffnen"
+        subtitle: "Was du suchst, ist hier",
+        main: "Was du suchst, ist hier 🤍",
+        age: "Dieser Inhalt ist nur für Erwachsene bestimmt (18+)",
+        cancel: "Abbrechen",
+        continue: "Ich bin 18+, Weiter",
+        opened: "Im Browser geöffnet",
+        description: "Direkt zu meinem Instagram-Profil zurückkehren.",
+        profile: "@jeer.gg öffnen"
       },
 
       it: {
-        subtitle:
-          "Quello che cerchi è qui",
-        main:
-          "Quello che cerchi è qui 🤍",
-        age:
-          "Questo contenuto è destinato esclusivamente agli adulti (18+)",
-        cancel:
-          "Annulla",
-        continue:
-          "Ho più di 18 anni, Continua",
-        opened:
-          "Aperto nel browser",
-        description:
-          "Quando torni, puoi andare direttamente al mio profilo Instagram.",
-        profile:
-          "Apri @jeer.gg"
+        subtitle: "Quello che cerchi è qui",
+        main: "Quello che cerchi è qui 🤍",
+        age: "Questo contenuto è destinato esclusivamente agli adulti (18+)",
+        cancel: "Annulla",
+        continue: "Ho più di 18 anni, Continua",
+        opened: "Aperto nel browser",
+        description: "Torna direttamente al mio profilo Instagram.",
+        profile: "Apri @jeer.gg"
       }
 
     };
@@ -629,10 +516,6 @@
       text.profile;
 
 
-    /* =====================================
-       ELEMENTOS
-       ===================================== */
-
     const ageModal =
       document.getElementById("ageModal");
 
@@ -652,10 +535,6 @@
       document.getElementById("returnButton");
 
 
-    /* =====================================
-       DETECCIÓN
-       ===================================== */
-
     const userAgent =
       navigator.userAgent ||
       navigator.vendor ||
@@ -664,38 +543,17 @@
     const isInstagram =
       /Instagram/i.test(userAgent);
 
-    const isFacebook =
-      /FBAN|FBAV|FB_IAB/i.test(userAgent);
-
     const isIOS =
       /iPhone|iPad|iPod/i.test(userAgent);
 
     const isAndroid =
       /Android/i.test(userAgent);
 
-    const isInAppBrowser =
-      isInstagram || isFacebook;
-
-
-    /* =====================================
-       ESTADO
-       ===================================== */
-
-    let externalLinkStarted = false;
-    let externalLinkTime = 0;
-    let pageBecameHidden = false;
-
-
-    /* =====================================
-       MODAL
-       ===================================== */
 
     mainButton.addEventListener(
       "click",
       function () {
-
         ageModal.classList.add("show");
-
       }
     );
 
@@ -703,9 +561,7 @@
     cancelButton.addEventListener(
       "click",
       function () {
-
         ageModal.classList.remove("show");
-
       }
     );
 
@@ -715,73 +571,35 @@
       function (event) {
 
         if (event.target === ageModal) {
-
           ageModal.classList.remove("show");
-
         }
 
       }
     );
 
 
-    /* =====================================
-       ABRIR PERFIL INSTAGRAM
-       ===================================== */
+    function showReturnScreen() {
 
-    function openInstagramProfile() {
-
-      window.location.href =
-        instagramProfileDeepLink;
+      ageModal.classList.remove("show");
+      returnScreen.classList.add("show");
 
     }
 
 
-    returnButton.addEventListener(
-      "click",
-      function () {
-
-        openInstagramProfile();
-
-      }
-    );
-
-
-    /* =====================================
-       ABRIR NAVEGADOR EXTERNO
-       ===================================== */
-
     function openExternalBrowser(url) {
 
-      externalLinkStarted = true;
+      showReturnScreen();
 
-      externalLinkTime =
-        Date.now();
-
-      ageModal.classList.remove("show");
-
-      returnScreen.classList.add("show");
-
-
-      /* =============================
-         INSTAGRAM + IPHONE
-         ============================= */
 
       if (isInstagram && isIOS) {
 
-        const externalURL =
+        window.location.href =
           "instagram://extbrowser/?url=" +
           encodeURIComponent(url);
-
-        window.location.href =
-          externalURL;
 
         return;
       }
 
-
-      /* =============================
-         INSTAGRAM + ANDROID
-         ============================= */
 
       if (isInstagram && isAndroid) {
 
@@ -815,36 +633,10 @@
       }
 
 
-      /* =============================
-         FACEBOOK + IPHONE
-         ============================= */
-
-      if (isFacebook && isIOS) {
-
-        window.location.href =
-          url;
-
-        return;
-      }
-
-
-      /* =============================
-         OTROS NAVEGADORES
-         ============================= */
-
-      if (!isInAppBrowser) {
-
-        window.location.href =
-          url;
-
-      }
-
+      window.location.href =
+        url;
     }
 
-
-    /* =====================================
-       CONTINUAR
-       ===================================== */
 
     continueButton.addEventListener(
       "click",
@@ -858,101 +650,90 @@
     );
 
 
-    /* =====================================
-       DETECTAR QUE SALIÓ DE INSTAGRAM
-       ===================================== */
+    /*
+      ABRIR PERFIL + INTENTAR CERRAR
+      LA VENTANA INTERNA DE INSTAGRAM
+    */
 
-    document.addEventListener(
-      "visibilitychange",
+    returnButton.addEventListener(
+      "click",
       function () {
 
-        if (!externalLinkStarted) {
-          return;
-        }
+        /*
+          Reemplaza la página actual por
+          el deep link del perfil.
+        */
 
+        try {
 
-        if (document.hidden) {
+          window.location.replace(
+            instagramProfileDeepLink
+          );
 
-          pageBecameHidden = true;
+        } catch (e) {
 
-          return;
+          window.location.href =
+            instagramProfileDeepLink;
 
         }
 
 
         /*
-          Si la página estuvo oculta significa
-          que el usuario salió al navegador
-          externo y luego regresó.
+          PRIMER INTENTO DE CIERRE
         */
 
-        if (
-          !document.hidden &&
-          pageBecameHidden &&
-          isInstagram
-        ) {
+        setTimeout(
+          function () {
 
-          const elapsed =
-            Date.now() -
-            externalLinkTime;
+            try {
 
+              window.open("", "_self");
 
-          /*
-            Evita activar el perfil demasiado
-            rápido durante el propio salto.
-          */
+              window.close();
 
-          if (elapsed > 1200) {
+            } catch (e) {}
 
-            setTimeout(
-              function () {
-
-                openInstagramProfile();
-
-              },
-              250
-            );
-
-          }
-
-        }
-
-      }
-    );
+          },
+          250
+        );
 
 
-    /* =====================================
-       RESPALDO AL VOLVER POR CACHE
-       ===================================== */
+        /*
+          SEGUNDO INTENTO
+        */
 
-    window.addEventListener(
-      "pageshow",
-      function () {
+        setTimeout(
+          function () {
 
-        if (
-          externalLinkStarted &&
-          pageBecameHidden &&
-          isInstagram
-        ) {
+            try {
 
-          const elapsed =
-            Date.now() -
-            externalLinkTime;
+              window.close();
 
-          if (elapsed > 1500) {
+            } catch (e) {}
 
-            setTimeout(
-              function () {
+          },
+          700
+        );
 
-                openInstagramProfile();
 
-              },
-              300
-            );
+        /*
+          TERCER INTENTO
+        */
 
-          }
+        setTimeout(
+          function () {
 
-        }
+            try {
+
+              window.open("", "_self");
+
+              window.close();
+
+            } catch (e) {}
+
+          },
+          1300
+        );
 
       }
     );
